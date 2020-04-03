@@ -68,7 +68,9 @@
           style="position: absolute;width: 1050px;height:360px;float: left;left:20px;top:790px;bottom: 0px;">
      </div>
      <script>
-          if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};
+          if (typeof module === 'object') {
+               window.jQuery = window.$ = module.exports;
+          };
           //连接服务器
           connectionServer();
           //统计05-19年每年对应的200KV以及500KV工程数量
@@ -210,7 +212,8 @@
                               name: "总工程",
                               //每年对应的（200KV+500KV）工程的数量
                               data: [10, 14, 13, 8, 9, 9, 17, 8, 14, 13, 11, 12, 16, 10,
-                              10], //[11,26,42,51,65,76,94,103,121,135,145,157,177,188,201]
+                                   10
+                              ], //[11,26,42,51,65,76,94,103,121,135,145,157,177,188,201]
                               type: 'line',
                               symbol: 'square',
                               symbolSize: 5,
@@ -894,17 +897,17 @@
           }
 
           function cqmap() {
-               var myChart = echarts.init(document.getElementById('ditu'));
+               var myChartMap = echarts.init(document.getElementById('ditu'));
                var uploadedDataURL = "../data/PC/chongqing.json";
-               myChart.showLoading();
+               myChartMap.showLoading();
                $.getJSON(uploadedDataURL, function (geoJson) {
                     echarts.registerMap('chongqing', geoJson);
-                    myChart.hideLoading();
+                    myChartMap.hideLoading();
                     // 各区县的经纬度坐标，不要乱动
                     var geoCoordMap = {
                          '巫溪县': [109.3359, 31.4813],
                          '奉节县': [109.3909, 30.9265],
-                         '开州区': [108.4131, 31.2561],
+                         '开县': [108.4131, 31.2561],
                          '酉阳土家族苗族自治县': [108.8196, 28.8666],
                          '彭水苗族土家族自治县': [108.2043, 29.3994],
                          '云阳县': [108.8306, 31.0089],
@@ -933,167 +936,210 @@
                          '荣昌县': [105.5127, 29.4708],
                          '璧山县': [106.2048, 29.5807],
                          '北碚区': [106.5674, 29.8883],
-                         '万州区': [106.908, 28.9325],
+                         '万盛区': [106.908, 28.9325],
                          '九龙坡区': [106.3586, 29.4049],
                          '沙坪坝区': [106.3696, 29.6191],
                          '南岸区': [106.6663, 29.5367],
                          '江北区': [106.8311, 29.6191],
                          '大渡口区': [106.4905, 29.4214],
-                         '渝中区': [106.5344, 29.5477]
+                         '渝中区': [106.5344, 29.5477],
+                         '万州区': [108.3911, 30.6958]
                     }
                     // 各区县的数据，在这里填
                     var data = [{
                               name: '奉节县',
-                              value: 5
-
+                              value: 5,
+                              selected: false
                          },
                          {
                               name: '巫溪县',
-                              value: 4
+                              value: 4,
+                              selected: false
                          },
                          {
-                              name: '开州区',
-                              value: 1
+                              name: '开县',
+                              value: 1,
+                              selected: false
                          },
                          {
                               name: '酉阳土家族苗族自治县',
-                              value: 3
+                              value: 3,
+                              selected: false
                          },
                          {
                               name: '彭水苗族土家族自治县',
-                              value: 6
+                              value: 6,
+                              selected: false
                          },
                          {
                               name: '云阳县',
-                              value: 2
+                              value: 2,
+                              selected: false
                          },
                          {
                               name: '万州区',
-                              value: 7
+                              value: 7,
+                              selected: false
                          },
                          {
                               name: '城口县',
-                              value: 4
+                              value: 4,
+                              selected: false
                          },
                          {
                               name: '江津区',
-                              value: 10
+                              value: 10,
+                              selected: false
                          },
                          {
                               name: '石柱土家族自治县',
-                              value: 4
+                              value: 4,
+                              selected: false
                          },
                          {
                               name: '巫山县',
-                              value: 2
+                              value: 2,
+                              selected: false
                          },
                          {
                               name: '涪陵区',
-                              value: 5
+                              value: 5,
+                              selected: false
                          },
                          {
                               name: '丰都县',
-                              value: 1
+                              value: 1,
+                              selected: false
                          },
                          {
                               name: '武隆县',
-                              value: 2
+                              value: 2,
+                              selected: false
                          },
                          {
                               name: '南川区',
-                              value: 1
+                              value: 1,
+                              selected: false
                          },
                          {
                               name: '秀山土家族苗族自治县',
-                              value: 2
+                              value: 2,
+                              selected: false
                          },
                          {
                               name: '黔江区',
-                              value: 3
+                              value: 3,
+                              selected: false
                          },
                          {
                               name: '合川区',
-                              value: 7
+                              value: 7,
+                              selected: false
                          },
                          {
-                              name: '綦江区',
-                              value: 10
+                              name: '綦江县',
+                              value: 10,
+                              selected: false
                          },
                          {
                               name: '忠县',
-                              value: 0
+                              value: 0,
+                              selected: false
                          },
                          {
                               name: '梁平县',
-                              value: 2
+                              value: 2,
+                              selected: false
                          },
                          {
                               name: '巴南区',
-                              value: 8
+                              value: 8,
+                              selected: false
                          },
                          {
                               name: '潼南区',
-                              value: 3
+                              value: 3,
+                              selected: false
                          },
                          {
                               name: '永川区',
-                              value: 4
+                              value: 4,
+                              selected: false
                          },
                          {
                               name: '垫江县',
-                              value: 3
+                              value: 3,
+                              selected: false
                          },
                          {
                               name: '渝北区',
-                              value: 17
+                              value: 17,
+                              selected: false
                          },
                          {
                               name: '长寿区',
-                              value: 8
+                              value: 8,
+                              selected: false
                          },
                          {
                               name: '大足县',
-                              value: 1
+                              value: 1,
+                              selected: false
                          },
                          {
                               name: '铜梁县',
-                              value: 5
+                              value: 5,
+                              selected: false
                          },
                          {
                               name: '荣昌县',
-                              value: 1
+                              value: 1,
+                              selected: false
                          },
                          {
                               name: '璧山县',
-                              value: 3
+                              value: 3,
+                              selected: false
                          },
                          {
                               name: '北碚区',
-                              value: 3
+                              value: 3,
+                              selected: false
                          },
                          {
                               name: '九龙坡区',
-                              value: 5
+                              value: 5,
+                              selected: false
                          },
                          {
                               name: '沙坪坝区',
-                              value: 7
+                              value: 7,
+                              selected: false
                          },
                          {
                               name: '南岸区',
-                              value: 4
+                              value: 4,
+                              selected: false
                          },
                          {
                               name: '江北区',
-                              value: 16
+                              value: 16,
+                              selected: false
                          },
                          {
                               name: '大渡口区',
-                              value: 2
+                              value: 2,
+                              selected: false
                          },
                          {
                               name: '渝中区',
-                              value: 2
+                              value: 2,
+                              selected: false
+                         },
+                         {
+                              name: '万盛区',
+                              value: 0,
+                              selected: false
                          }
                     ];
                     var max = 20,
@@ -1114,7 +1160,7 @@
                          }
                          return res;
                     };
-                    option = {
+                    option2 = {
                          title: {
                               text: '重庆各地区变电站数量统计',
                               // subtext: '提示：使用鼠标滚轮放大观看更清晰呦！',
@@ -1156,12 +1202,13 @@
                          visualMap: {
                               show: false,
                               min: 0,
-                              max: 20,
-                              left: 'left',
+                              max: 10,
+                              // left: 0,
                               top: 'bottom',
                               text: ['高', '低'], // 文本，默认为数值文本
                               calculable: true,
                               seriesIndex: [1],
+                              hoverLink: false,
                               inRange: {
                                    // color: ['#3B5077', '#031525'] // 蓝黑
                                    // color: ['#ffc0cb', '#800080'] // 红紫
@@ -1178,7 +1225,6 @@
                               }
                          },
                          geo: {
-                              // roam: false,
                               show: true,
                               map: 'chongqing',
                               label: {
@@ -1189,10 +1235,10 @@
                                         show: false,
                                    }
                               },
-                              roam: false,
+                              roam: true,
                               itemStyle: {
                                    normal: {
-                                        areaColor: 'yellow',
+                                        areaColor: 'green',
                                         borderColor: '#3B5077',
                                    },
                                    emphasis: {
@@ -1206,7 +1252,7 @@
                                    coordinateSystem: 'geo',
                                    data: convertData(data),
                                    symbolSize: function (val) {
-                                        return val[2] / 10;
+                                        return val[2] / 1;
                                    },
                                    label: {
                                         normal: {
@@ -1232,33 +1278,27 @@
 
                               },
                               {
+                                   name: 'chongqing',
                                    type: 'map',
-                                   map: 'chongqing',
-                                   geoIndex: 0,
-                                   aspectScale: 0.75, //长宽比
-                                   showLegendSymbol: false, // 存在legend时显示
-                                   label: {
-                                        normal: {
-                                             show: false
-                                        },
-                                        emphasis: {
-                                             show: false,
-                                             textStyle: {
-                                                  color: '#fff'
-                                             }
-                                        }
-                                   },
-                                   roam: true,
+                                   mapType: 'chongqing',
+                                   selectedMode: false, //single 表示单选;multiple表示多选 默认flase不选
                                    itemStyle: {
                                         normal: {
-                                             areaColor: 'white',
-                                             borderColor: '#3B5077',
+                                             label: {
+                                                  show: false, //默认是否显示省份名称
+                                             },
+                                             areaColor: "#ff0000",
+                                             borderWidth: 1,
+                                             borderColor: '#e1e1e1',
                                         },
                                         emphasis: {
-                                             areaColor: '#2B91B7'
-                                        }
+                                             label: {
+                                                  show: true, //选中状态是否显示省份名称
+                                             },
+                                             areaColor: "#ff0000",
+                                        },
                                    },
-                                   animation: true,
+                                   //此为加载的数据
                                    data: data
                               },
                               {
@@ -1270,7 +1310,7 @@
                                         var a = (maxSize4Pin - minSize4Pin) / (max - min);
                                         var b = minSize4Pin - a * min;
                                         b = maxSize4Pin - a * max;
-                                        return a * val[2] + b + 30; //设置气泡的大小
+                                        return a * val[2] + b + 10; //设置气泡的大小
                                    },
                                    label: {
                                         normal: {
@@ -1323,16 +1363,33 @@
 
                          ]
                     };
-                    myChart.setOption(option);
-                    window.mysocket.on("dianJian", function (message) {
-                         var option1 = myChart.getOption();
-                         option1.geo[0].itemStyle.normal.areaColor = message;
-                         myChart.setOption(option1)
+                    myChartMap.setOption(option2);
+
+                    function clearSelect(data) {
+                         data.forEach(item => {
+                              item.selected = false;
+                         })
+                    }
+                    window.mysocket.on("dianjian", function (message) {
+                         // var option1 = myChartMap.getOption();
+                         // option1.geo[0].itemStyle.normal.areaColor = message;
+                         // myChartMap.setOption(option1)
+                         clearSelect(data);
+                         console.log(message)
+                         data.forEach(item => {
+                              if (item.name === message) {
+                                   item.selected = true;
+                              }
+                         });
+                         myChartMap.setOption(option2)
+
                     })
-                    myChart.on('click', function (params) {
+                    myChartMap.on('click', function (params) {
+
                          // var option1 = myChart.getOption();
-                         // option1.geo[0].itemStyle.normal.areaColor='green';
-                         // myChart.setOption(option1)
+                         // // console.log(option1)
+                         // // option1.geo[0].itemStyle.normal.areaColor='green';
+                         myChartMap.setOption(option2)
 
                     });
                });

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>各区域数据汇总</title>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/socket.io.min.js"></script>
+</head>
+<body style="background-image:url(../image/background.png);margin: 0px;padding: 0px;background-repeat: no-repeat">
+    <script>
+
+var option3 = {
+    tooltip: {
+        trigger: 'item',
+        // formatter: '{b}{c}',
+        formatter: function (params) {
+            // console.log(params);
+            if( params.data.value == undefined||params.data.value == '-'){
+                params.data.value=0;
+            }
+            return params.data.name +'<br>' + params.data.value;
+        },
+    },
+    series: [{
+        name: '中国',
+        type: 'map',
+        mapType: 'china',
+        selectedMode: false,//single 表示单选;multiple表示多选 默认flase不选
+        itemStyle: {
+            normal: {
+                label: {
+                    show: false,//默认是否显示省份名称
+                },
+                areaColor : "#ff0000",
+                borderWidth:1,
+                borderColor:'#e1e1e1',
+            },
+            emphasis: {
+                label: {
+                    show: true,//选中状态是否显示省份名称
+                },
+                areaColor : "#0000ff",
+            },
+        },
+        //此为加载的数据
+        data: [
+            {name: '广东',selected: true,value:10},
+            {name: '广西',selected: true,value:10},
+            {name: '四川',selected: true,value:10},
+        ]
+    }]
+}
+    </script>
+</body>
+</html>
