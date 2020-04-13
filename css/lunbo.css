@@ -1,0 +1,39 @@
+table,tbody,tfoot,thead,tr,th,td {
+	margin:0;
+	padding:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+	border-collapse:collapse;
+	border-spacing:0;
+	border:0px;
+}
+.tablebox {
+	width:300px;
+	height:400px;
+	overflow:hidden;
+	margin:50px auto;
+}
+.tablebox table {
+	width:100%;
+}
+.tablebox table th,.tablebox table td {
+	font-size:12px;
+	text-align:center;
+	line-height:36px;
+}
+.tablebox table th {
+	color:#2584e3;
+	background-color:#f6f6f6;
+}
+.tablebox table td img {
+	display:inline-block;
+	vertical-align:middle;
+}
+.tablebox table tbody tr:nth-child(even) {
+	background-color:#f6f6f6;
+}
+.tablebox.table_md table td,.tablebox.table_md table th {
+	line-height:40px;
+}
